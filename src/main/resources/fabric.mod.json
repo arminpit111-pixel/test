@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "id": "pinghud",
+  "version": "${version}",
+  "name": "Ping HUD",
+  "description": "Zeigt den echten Ping zum Spielserver (auch bei Proxys) als einstellbares HUD mit Farben, Graph und Spike-Erkennung.",
+  "authors": ["You"],
+  "license": "MIT",
+  "environment": "client",
+  "entrypoints": {
+    "client": ["dev.pinghud.PingHudMod"]
+  },
+  "mixins": ["pinghud.mixins.json"],
+  "depends": {
+    "fabricloader": ">=0.18.1",
+    "minecraft": "~1.21.11",
+    "java": ">=21",
+    "fabric-api": "*"
+  }
+}

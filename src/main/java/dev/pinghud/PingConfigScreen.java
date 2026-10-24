@@ -61,12 +61,12 @@ public class PingConfigScreen extends Screen {
 		}).dimensions(left, y + step * 5, w, 20).build());
 
 		// Rechte Spalte: Slider
-		addDrawableChild(new ConfigSlider(right, y, w, "Abstand X", 0, 300, cfg.offsetX, v -> cfg.offsetX = (int) v, true));
-		addDrawableChild(new ConfigSlider(right, y + step, w, "Abstand Y", 0, 300, cfg.offsetY, v -> cfg.offsetY = (int) v, true));
-		addDrawableChild(new ConfigSlider(right, y + step * 2, w, "Größe", 0.5, 3.0, cfg.scale, v -> cfg.scale = (float) v, false));
-		addDrawableChild(new ConfigSlider(right, y + step * 3, w, "Intervall ms", 500, 5000, cfg.intervalMs, v -> cfg.intervalMs = (int) v, true));
-		addDrawableChild(new ConfigSlider(right, y + step * 4, w, "Grün bis ms", 20, 600, cfg.goodMax, v -> cfg.goodMax = (int) v, true));
-		addDrawableChild(new ConfigSlider(right, y + step * 5, w, "Gelb bis ms", 20, 800, cfg.okMax, v -> cfg.okMax = (int) v, true));
+		addDrawableChild(new ConfigSlider(right, y, w, "Abstand X", 0, 300, cfg.offsetX, v -> cfg.offsetX = v.intValue(), true));
+		addDrawableChild(new ConfigSlider(right, y + step, w, "Abstand Y", 0, 300, cfg.offsetY, v -> cfg.offsetY = v.intValue(), true));
+		addDrawableChild(new ConfigSlider(right, y + step * 2, w, "Größe", 0.5, 3.0, cfg.scale, v -> cfg.scale = v.floatValue(), false));
+		addDrawableChild(new ConfigSlider(right, y + step * 3, w, "Intervall ms", 500, 5000, cfg.intervalMs, v -> cfg.intervalMs = v.intValue(), true));
+		addDrawableChild(new ConfigSlider(right, y + step * 4, w, "Grün bis ms", 20, 600, cfg.goodMax, v -> cfg.goodMax = v.intValue(), true));
+		addDrawableChild(new ConfigSlider(right, y + step * 5, w, "Gelb bis ms", 20, 800, cfg.okMax, v -> cfg.okMax = v.intValue(), true));
 
 		addDrawableChild(ButtonWidget.builder(Text.literal("Fertig"), b -> close())
 				.dimensions(this.width / 2 - 100, y + step * 6 + 6, 200, 20).build());
